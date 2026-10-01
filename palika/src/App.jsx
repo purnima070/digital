@@ -6,6 +6,8 @@ import Services from "./pages/Services";
 import Notices from "./pages/Notices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import BirthApplication from "./pages/BirthApplication";
 
 function App() {
   return (
@@ -18,6 +20,14 @@ function App() {
         <Route path="/notices" element={<Notices />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/birth-application"
+  element={<BirthApplication />}
+/>
+<Route
+  path="/birth-application"
+  element={<BirthApplication />}
+/>
       </Routes>
 
       <Footer />

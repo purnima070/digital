@@ -1,10 +1,8 @@
-
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   FileText,
-  HeartPulse,
-  Home,
   Building2,
   CreditCard,
   Users,
@@ -96,7 +94,10 @@ function Services() {
         {!loading && !error && (
           <div className="service-list">
             {filteredServices.map((service) => (
-              <div className="large-service-card" key={service._id}>
+              <div
+                className="large-service-card"
+                key={service._id}
+              >
                 <div className="large-service-icon">
                   {icons[service.category] || <FileText />}
                 </div>
@@ -117,10 +118,24 @@ function Services() {
                   </small>
                 </div>
 
-                <button className="service-apply">
-                  Apply
-                  <ArrowRight size={17} />
-                </button>
+                {service.title.toLowerCase() ===
+                "birth registration" ? (
+                  <Link
+                    to="/birth-application"
+                    className="service-apply"
+                  >
+                    Apply
+                    <ArrowRight size={17} />
+                  </Link>
+                ) : (
+                  <button
+                    className="service-apply"
+                    type="button"
+                  >
+                    Apply
+                    <ArrowRight size={17} />
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -142,15 +157,18 @@ function Services() {
           <h2>Not sure which service you need?</h2>
 
           <p>
-            Contact your ward office for assistance before submitting
-            an application.
+            Contact your ward office for assistance before
+            submitting an application.
           </p>
         </div>
 
-        <a href="/contact" className="secondary-button">
+        <Link
+          to="/contact"
+          className="secondary-button"
+        >
           Contact Us
           <ArrowRight size={17} />
-        </a>
+        </Link>
       </section>
     </div>
   );
